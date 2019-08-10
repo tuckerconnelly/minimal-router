@@ -7,7 +7,7 @@ Minimal Node.js router.
 ## Usage
 
 ```
-npm i minimal-router
+npm i @tuckerconnelly/minimal-router
 ```
 
 Then where you define your HTTP server:
@@ -15,7 +15,7 @@ Then where you define your HTTP server:
 ```js
 const http = require('http');
 
-const minimalRouter = require('minimal-router');
+const minimalRouter = require('@tuckerconnelly/minimal-router');
 
 http.createServer(
   minimalRouter(`${__dirname}/routes`)((req, res) => {
