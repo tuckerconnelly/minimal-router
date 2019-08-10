@@ -16,6 +16,13 @@ function minimalRouter(modulesDir) {
   const routes = {};
 
   glob.sync(path.join(modulesDir, '/**/*.js')).forEach(f => {
+    // Ignore __tests__ when NODE_ENV !== test
+    if (
+      process.env.NODE_ENV !== 'test' &&
+      (f.includes('__tests__') || f.includes('__mocks__'))
+    )
+      return;
+
     const module = require(path.resolve(f));
     const difference = R.difference(
       REQUIRED_EXPORTS,
