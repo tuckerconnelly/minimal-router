@@ -28,8 +28,11 @@ http.createServer(
 Then in `routes/test-endpoint.js` add:
 
 ```js
+// Optional, defaults to pathname of this file
 exports.pathname = '/test-endpoint'
+// Optional, defaults to ['post']
 exports.methods = ['get']
+// Required
 exports.route = (req, res) => res.end('OK');
 ```
 

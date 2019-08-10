@@ -16,5 +16,11 @@ const server = () =>
 it('routes properly', async () => {
   const url = await testListen(server());
   const res = await axios.post(`${url}/test`);
-  console.log(res.data);
+  expect(res.data).toBe('OK');
+});
+
+it('routes properly with default pathname and methods', async () => {
+  const url = await testListen(server());
+  const res = await axios.post(`${url}/test-defaults`);
+  expect(res.data).toBe('OK');
 });
