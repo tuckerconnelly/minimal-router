@@ -28,12 +28,10 @@ http.createServer(
 Then in `routes/test-endpoint.js` add:
 
 ```js
-// Optional, defaults to pathname of this file
-exports.pathname = '/test-endpoint'
 // Optional, defaults to ['post']
 exports.methods = ['get']
 // Required
-exports.route = (req, res) => res.end('OK');
+exports.default = (req, res) => res.end('OK');
 ```
 
 Then you can make calls to that route function:

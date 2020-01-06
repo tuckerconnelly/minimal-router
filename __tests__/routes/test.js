@@ -1,3 +1,2 @@
-exports.pathname = '/test';
-exports.methods = ['post'];
-exports.route = (req, res) => res.end('OK');
+exports.methods = ['get'];
+exports.default = (req, res) => res.end('OK');

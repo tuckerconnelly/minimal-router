@@ -36,6 +36,18 @@ function minimalRouter(modulesDir) {
       return;
     }
 
+    if (module.pathname) {
+      console.warn(
+        `${f}: Exporting pathname is deprecated and will be removed in a future version.`
+      );
+    }
+
+    if (module.route) {
+      console.warn(
+        `${f}: exports.route is deprecated and will be removed in a future version. Use exports.default now.`
+      );
+    }
+
     const pathname =
       module.pathname || f.match(new RegExp(`^${modulesDir}(.+).js$`))[1];
 
@@ -61,7 +73,9 @@ function minimalRouter(modulesDir) {
     )
       return next(req, res, ...args);
 
-    return routes[parsed.pathname].route(req, res, ...args);
+    const fn = routes[parsed.pathname].default || routes[parsed.pathname].route;
+
+    return fn(req, res, ...args);
   };
 }
 

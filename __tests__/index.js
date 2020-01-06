@@ -15,7 +15,7 @@ const server = () =>
 
 it('routes properly', async () => {
   const url = await testListen(server());
-  const res = await axios.post(`${url}/test`);
+  const res = await axios.get(`${url}/test`);
   expect(res.data).toBe('OK');
 });
 

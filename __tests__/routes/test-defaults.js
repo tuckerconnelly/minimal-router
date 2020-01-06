@@ -1,1 +1,1 @@
-exports.route = (req, res) => res.end('OK');
+exports.default = (req, res) => res.end('OK');
